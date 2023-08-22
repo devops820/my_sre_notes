@@ -151,4 +151,51 @@ How latency is measured (for example - time to last byte)
 
 Having these standards makes it simpler for different people or teams to gain a common understanding of what a specific service level indicator means.
 
+## Service Level Objectives
+
+- SLO builds off of a SLI to provide a target level of reliability for a service to customers.
+- SLO = SLI + Threshold + TimeWindow
+- SLO's prevent over utilization and under-utilization of a service
+- Without an SLO there is no way of saying what kind of downtime is acceptable
+- No way to measure if this is a significant service issue
+- No path to cutting off additional support tickets from escalating to your on-call engineers
+- 100% reliability target is wrong (reduces innovation/deployment)
+- SLO's need to be owned by the people who can act on them
+
+**Example of an SLO** -
+SLI - API requests < 500 ms
+Threshold - 90%
+Time Window - 30 days rolling
+SLO - 90% of the requests to the API should take fewer than 500 milliseconds over a 30-day period
+
+How will you if something is a resonable SLO ? How to set an initial SLO ?
+The short answer is, take a 30 day or 4 week period, track your SLI and see at which percentile's does your SLI's indicate
+You set that.
+
+### Choosing time window
+- SLO's can be set over multiple time intervals (and can use a rolling time-window or calendar based window) or (short-duration vs long-duration)
+- Rolling windows follows more closely the user's experience. For example, if you have a large outage on the last day of the month, the user doesn't forget
+  about it on the first day of the next month.
+- Also about the rolling windows, choose the window carefully so that it has equal no of weekends, this affects because the traffic patterns may vary during a weekday or a weekend.
+- Conversly, Calendar based windows align with business planning, and potentially project planning
+
+### Window Duration
+- Shorter windows - allows you to make decisions quickly
+- Larger windows - better for strategic decisions (planning multi-month projects based on a week's worth of data is not ideal)
+- start with a 4 week rolling window (complement this timewindow with weekly summaries for sprint prioritization and quarterly summaries for long term project planning)
+
+### Stakeholder Aggrement
+- In order for a SLO to be useful and effective, you will need to get buy-in from stakeholders - product managers and product developers and (SRE team)
+- Product Managers - Is the threshold set high enough for the users? (below the threshold - unacceptably low, such that it is worth the engineering time to fix whatever is causing the missing threshold)
+- Product Developers - Do we have capacity to take steps to reduce risk in case of SLO violations? But the accomodation of changes to the service must happen with in the error budgets
+- SRE's - Can we meet SLO without excessive or manual work ?
+
+### Documenting SLO's
+- Centalized easy to update space
+- In the documentation include the following
+
+
+
+
+
 
