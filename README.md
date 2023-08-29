@@ -194,8 +194,48 @@ You set that.
 - Centalized easy to update space
 - In the documentation include the following
 
+### Continous Improvements
+- Count manually discovered outages and looking at support tickets
+- User sentiment on social media
+- Periodically sample user happiness
+- F2F user interviews
+
+### SLO Coverage
+Ask yourselves - Do these periods (Outages and service issues) correlate with SLI trends.
+If outages and ticket spikes are not captured or if SLI dips & SLO misses do not correlate with user dissatisfaction, its likely your SLO lacks coverage
+
+3 ways to respond for SLO coverage
+- Loosen or Tighten SLO
+- change SLI implementation
+- create an aspirational SLO
+
+If your SLI's indicate a problem, but your SLO's didn't prompt anyone to notice and respond then tighten your SLO.
+Alternatively if you have many false positive events, then loosen your SLO.
+
+SLI coverage
+- improve the quality of your metric
+  - by moving the measurement closer to the end user
+- sample the metric more frequently to capture a higher percentage of user interactions
+
+3 Important Factors
+
+SLO
+Toil
+Customer Satisfaction
+
+              SLO Met?    High Toil?   Users Happy?
+Tighten SLO    Yes          Yes           No
+
+Loosen SLO      No          No            Yes
+
+Offload toil,   No          No            No
+fix product 
+and
+improve
+automation
 
 
+Finally revisit the SLO's at set cadence.
 
 
 
